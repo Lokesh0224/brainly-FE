@@ -12,7 +12,7 @@ export function Card(props: CardProps){
             <div className= 'flex justify-between'>
                 <div className='flex items-center text-md'>
                     
-                    Project ideas
+                    {props.title}
                 </div>
                 <div className='flex'>
                 

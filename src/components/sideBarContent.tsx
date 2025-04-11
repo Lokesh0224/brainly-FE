@@ -2,7 +2,7 @@ import { TwitterIcon } from "./icons/tweets";
 import { YoutubeIcon } from "./icons/youtube";
 import { DocumentIcon } from "./icons/document";
 import { LinkIcon } from "./icons/link";
-import { TagIcon } from "./icons/tag";
+import { InstaIcon } from "./icons/instagram";
 import { SideBarItem } from "./sideBarItem";
 import { Logo } from "./icons/logo";
 
@@ -19,7 +19,7 @@ export function Sidebar() {
                 <SideBarItem text="Youtube" icon={<YoutubeIcon />} />
                 <SideBarItem text="Documents" icon={<DocumentIcon />} />
                 <SideBarItem text="Links" icon={<LinkIcon />} />
-                <SideBarItem text="Tags" icon={<TagIcon />} />
+                <SideBarItem text="Instagram" icon={<InstaIcon />} />
             </div>
         </div>
     );

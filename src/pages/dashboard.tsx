@@ -1,14 +1,19 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../components/button';
 import { PlusIcon } from '../components/icons/Plusicon';
 import { ShareIcon } from '../components/icons/shareIcon';
 import { Card } from '../components/card';
 import { CreateContentModal } from '../components/CreateContent';
 import { Sidebar } from '../components/sideBarContent';
+import { useContent } from '../hooks/useContent';
 
 export function Dashboard() {
   const [modalOpen, setModalOpen] = useState(false)
+  const {contents, fetchContents}=useContent()
+  useEffect(()=>{
+    fetchContents()
+  }, [modalOpen])
   return (
     <div>
       <Sidebar/>
@@ -32,11 +37,13 @@ export function Dashboard() {
       </Button>
       </div>
 
-      <div className= 'flex gap-4'>
+      <div className= 'flex gap-4 flex-wrap'>
+        {contents.map(({type, link, title})=>  <Card 
+        title={title} 
+        link={link} 
+        type={type}/>
+)}
 
-        <Card title='First Tweet' link='https://x.com/adegotyou/status/1908432372845916289' type='twitter'/>
-
-        <Card title='First video' link='https://www.youtube.com/watch?v=Twz8LigOdZY' type='youtube'/>
 
       </div>
       

@@ -8,6 +8,7 @@ interface ButtonInterface{
     variant: 'primary'| 'secondary'
     onClick?: ()=> void
     fullWidth?: boolean
+    loading?: boolean
 
 }
 
@@ -25,11 +26,11 @@ const varientStyles={
 
 const textStyles= 'font-dark'
 
-  
+   
 
 export function Button(props: ButtonInterface){
     
-        return <button onClick={props.onClick} className={` ${sizeStyles[props.size]} ${varientStyles[props.variant]} ${textStyles} ${props.fullWidth? ' w-full flex justify-center items-center': ''} `}><div className='flex items-center cursor-pointer '>
+        return <button onClick={props.onClick} className={` ${sizeStyles[props.size]} ${varientStyles[props.variant]} ${textStyles} ${props.fullWidth? ' w-full flex justify-center items-center': ''} ${props.loading? "opacity-45" : ""}`}disabled= {props.loading}><div className='flex items-center cursor-pointer '>
             {props.startIcon} 
             <div className='pl-2 pr-2'>
             {props.title}
